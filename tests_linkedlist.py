@@ -1,13 +1,20 @@
 import unittest
 import linkedlist
-import node
 
 
 class TestLinkedList(unittest.TestCase):
+    """
+    Testing LinkedList
+    """
+
     def setUp(self) -> None:
         self.linked_list = linkedlist.LinkedList()
 
-    def test_insert(self):
+    def test_insert(self) -> None:
+        """
+        "insert" method test
+        :return: None
+        """
         self.linked_list.insert(2, 4)
         self.assertEqual(1, len(self.linked_list))
         self.assertEqual(4, self.linked_list._LinkedList__head.value)
@@ -29,10 +36,18 @@ class TestLinkedList(unittest.TestCase):
 
         self.assertRaises(IndexError, self.linked_list.insert, -2, 77)
 
-    def test_clear(self):
+    def test_clear(self) -> None:
+        """
+        "clear" method test
+        :return: None
+        """
         self.assertEqual(0, len(self.linked_list))
 
-    def test_append_to_list(self):
+    def test_append_to_list(self) -> None:
+        """
+        "append" method test
+        :return: None
+        """
         self.linked_list.append(6)
         self.assertEqual(1, len(self.linked_list))
         self.assertEqual(6, self.linked_list._LinkedList__head.value)
@@ -42,7 +57,11 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(6, self.linked_list._LinkedList__head.value)
         self.assertEqual(55, self.linked_list._LinkedList__tail.value)
 
-    def test_find(self):
+    def test_find(self) -> None:
+        """
+        "find" method test
+        :return: None
+        """
         self.assertEqual(0, len(self.linked_list))
         for i in range(8):
             self.linked_list.append(f"num - {i}")
@@ -51,7 +70,11 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(7, self.linked_list.find("num - 7"))
         self.assertEqual(-1, self.linked_list.find("num - 8"))
 
-    def test_remove(self):
+    def test_remove(self) -> None:
+        """
+        "remove" method test
+        :return: None
+        """
         for i in range(8):
             self.linked_list.append(f"num - {i}")
         self.linked_list.append("num - 0")
@@ -59,7 +82,11 @@ class TestLinkedList(unittest.TestCase):
         self.linked_list.remove("num - 0")
         self.assertEqual(7, self.linked_list.find("num - 0"))
 
-    def test_delete(self):
+    def test_delete(self) -> None:
+        """
+        "delete" method test
+        :return: None
+        """
         for i in range(8):
             self.linked_list.append(f"num - {i}")
         self.linked_list.append("num - 0")

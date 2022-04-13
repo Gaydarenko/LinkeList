@@ -1,5 +1,6 @@
-from node import Node
 from typing import Any
+from node import Node
+
 
 
 class LinkedList:
@@ -124,8 +125,7 @@ class LinkedList:
         for item in enumerate(self):
             if item[1].value == value:
                 return item[0]
-        else:
-            return -1
+        return -1
 
     def remove(self, value) -> None:
         """
@@ -164,7 +164,7 @@ class LinkedList:
         """
         if index - 1 > self.__len:
             raise IndexError
-        elif index == 0:
+        if index == 0:
             self.__head = self.__head.next
             self.__head.prev = None
         elif index + 1 == self.__len:
@@ -179,53 +179,3 @@ class LinkedList:
             prev_node.next = next_node
             next_node.prev = prev_node
         self.__len -= 1
-
-
-if __name__ == '__main__':
-    mylist = LinkedList()
-    # mylist.append(1)
-    # mylist.append(2)
-    # mylist.append(3)
-    # mylist.append(4)
-    # mylist.append(5)
-    mylist.insert(5, 10)
-    mylist.insert(0, 11)
-    mylist.insert(2, 9)
-    print(mylist._LinkedList__head.value)
-    # mylist.insert(3, 33)
-    print(mylist)
-    print(len(mylist))
-    a = iter(mylist)
-    for _ in range(len(mylist)):
-        print(next(a))
-    print(mylist.find(3))
-    # print(mylist.find(10))
-    # print(mylist.find(5))
-    # print(mylist.find(333))
-    #
-    # print(mylist.find(33))
-    # print(mylist.find(33))
-    # mylist.remove(33)
-    # print(mylist.find(33))
-
-    # mylist = LinkedList()
-    # mylist.append(1)
-    # mylist.append(2)
-    # mylist.append(3)
-    # mylist.append(4)
-    # mylist.append(5)
-    # mylist.insert(0, 10)
-    # mylist.insert(3, 33)
-    # print(mylist)
-    # print(len(mylist))
-    # # mylist.remove(10)
-    # # mylist.remove(4)
-    # # mylist.remove(5)
-    # # mylist.remove(55)
-    # mylist.delete(0)
-    # mylist.delete(2)
-    # mylist.delete(4)
-    # a = iter(mylist)
-    # for _ in range(len(mylist)):
-    #     print(next(a))
-    # print(len(mylist))
